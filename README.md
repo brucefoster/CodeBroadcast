@@ -14,6 +14,7 @@ Summary
 * _Planned:_ Automatic task completion check
 * _Planned:_ Ability to give temporary code broadcast rights to user 
 
+
 For which purposes can be used
 ----------
 * Univesity education
