@@ -530,11 +530,14 @@ label {
 
 pre {
 	font: 12px/22px Lucida Console;
+	width: 98%;
 }
 
 .lineselector {
-	padding: 3px;
+	padding: 0px;
 	border: solid 1px #FFFFFF;
+	display: inline-block;
+	width: inherit;
 }
 
 .lineselector:hover {
@@ -579,11 +582,12 @@ pre {
 }
 
 .workbenchmessage .window {
-	width: 400px;
+	width: 600px;
 	padding: 15px 25px 15px 25px;
 	margin: 20% auto 0 auto;
 	text-align: center;
-	font: 20px/54px Arial;
+	letter-spacing: 0.025em;
+	font: 18px/42px Arial;
 	color: #808080;
 }
 
@@ -596,4 +600,15 @@ pre {
 	display: block;
 	font: 26px/30px Arial;
 	margin: 0px;
+}
+
+.askselector {
+	width: inherit;
+	background: rgba( 0, 165, 255, 0.3 );
+	border: solid 0px #EEEEEE;
+	border-radius: 20px;
+	height: 15px;
+	position: absolute;
+	z-index: 5000;
+	display: none;
 }

@@ -27,7 +27,7 @@
 </div>
 <div class="panel">
 	<h6>Feedback</h6>
-	<div class="item">
+	<div class="item" onclick="SendData();">
 		<i class="fa fa-eye"></i>
 		Show
 	</div>
@@ -49,14 +49,16 @@
 	<div class="info">Current window:</div>
 	<div class="data"><i class="fa fa-bug"></i> compile</div>
 	<div class="info">Active users:</div>
-	<div class="data"><i class="fa fa-users"></i> 0</div>
+	<div class="data"><i class="fa fa-users"></i> <span id="connectedViewers">0</span></div>
 </div>
 <div class="block">
 	<div class="info" onclick="startindicator();">Presenter's code</div>
+	<div class="askselector"></div>
 	<div id="code" style="width: 100%;height: 400px;">&lt;?php
 	</div>
 	<script src="templates/src-min/ace.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
+		StartBroadcastingServer();
 		var editor = ace.edit("code");
 		editor.setTheme("ace/theme/github");
 		editor.setShowPrintMargin(false);

@@ -44,7 +44,8 @@
 			fclose( $currentSessionSettings );
 			
 			// Empty last session user list.
-			if( CB_SESSION_USERS_EMPTY == true ) $currentUsersList = fopen( CB_ROOT_DIR . '/tempdata/currentsession/session.users.ini', 'w+' );
+			$currentUsersList = fopen( CB_ROOT_DIR . '/tempdata/currentsession/session.users.ini', 'w+' );
+			fwrite( $currentUsersList, '0' );
 			fclose( $currentUsersList );
 			
 			self::__requireHandler(
@@ -85,10 +86,17 @@
 					fclose( $currentSessionSettings );
 					break;
 					
-				case 'Viewer_Action_GetSetting_And_Code':
-					print file_get_contents(  CB_ROOT_DIR . '/tempdata/currentsession/session.settings.ini' );
-					print '##CB_CODE_START';
-					print file_get_contents(  CB_ROOT_DIR . '/tempdata/currentsession/session.code.ini' );
+				case 'Register_Peer':
+					if( $_SESSION[ 'Peer_Registered' ] == true ) print $_SESSION[ 'Peer_Registered_ID' ];
+					else {
+						$currentUserID = file_get_contents(  CB_ROOT_DIR . '/tempdata/currentsession/session.user.ini' );
+						$_SESSION[ 'Peer_Registered' ] = true;
+						$_SESSION[ 'Peer_Registered_ID' ] = $currentUserID + 1;
+						print $currentUserID + 1;
+						$currentUserIDList = fopen( CB_ROOT_DIR . '/tempdata/currentsession/session.settings.ini', 'w+' );
+						fwrite( $currentUserIDList, $currentUserID + 1 );
+						fclose( $currentUserIDList );
+					}
 					break;
 					
 				case 'Broadcast_Save_Code':

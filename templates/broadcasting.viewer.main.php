@@ -4,7 +4,7 @@
 </div>
 <div class="panel">
 	<h6>Current session</h6>
-	<div class="item" onclick="GoLive();">
+	<div class="item" onclick="AskQuestion();">
 		<i class="fa fa-info-circle" style="color: #4F95CD;"></i>
 		Ask question
 	</div>
@@ -25,20 +25,7 @@
 	<div class="info" onclick="startindicator();">Presenter's code</div>
 	
 		<div id="code">
-			<pre>&lt;?php
-class Render {
-		
-	public static function renderPage( $template, $tags ) {
-		ob_start();
-			include( CB_ROOT_DIR . '/templates/' . $template . '.php' );
-		$contents = ob_get_contents();
-		ob_end_clean();
-			
-		include_once( CB_ROOT_DIR . '/templates/_system.headers.php' );
-		print $contents;
-	}
-		
-}	</pre>
+			<pre></pre>
 	</div>
 	<script type="text/javascript">Viewer_Init();</script>
 </div>

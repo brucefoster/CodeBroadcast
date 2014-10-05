@@ -8,6 +8,7 @@
 		<link rel="stylesheet" href="templates/css/general.css" media="all" />
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="templates/scripts/code.js"></script>
+		<script src="http://cdn.peerjs.com/0.3/peer.js"></script>
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
 		<!--[if IE 7]>
 			<style type="text/css"> 
