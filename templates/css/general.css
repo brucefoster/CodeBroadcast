@@ -404,7 +404,8 @@ label {
 .http .hljs-title,
 .hljs-request,
 .hljs-status {
-  color: #008;
+  color: #327BD3;
+  font-weight: bold;
 }
 
 .hljs-envvar,
@@ -458,7 +459,8 @@ label {
 .setting,
 .hljs-params,
 .hljs-variable {
-  color: #606;
+  color: #9F42D1;
+  font-weight: bold;
 }
 
 .css .hljs-tag,
@@ -491,7 +493,7 @@ label {
 .hljs-preprocessor,
 .hljs-preprocessor *,
 .hljs-pragma {
-  color: #444;
+  color: red;
 }
 
 .tex .hljs-formula {
@@ -519,4 +521,79 @@ label {
 
 .hljs-comment .hljs-yardoctag {
   font-weight: bold;
+}
+
+
+/*
+ * Overlay window
+ */
+
+pre {
+	font: 12px/22px Lucida Console;
+}
+
+.lineselector {
+	padding: 3px;
+	border: solid 1px #FFFFFF;
+}
+
+.lineselector:hover {
+	background: #FFFFCC;
+	cursor: pointer;
+	border-radius: 3px;
+	border: solid 1px #FFD27F;
+}
+
+.selectedline {
+	background: #F5FFCE !important;
+	cursor: pointer;
+	border-radius: 3px;
+	border: solid 1px #B7D834 !important;
+}
+
+.overlay {
+	background: rgba(230,230,230,0.7);
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	display: none;
+	z-index: 100;
+}
+
+.overlay .window {
+	background: white;
+	width: 600px;
+	padding: 15px 25px 15px 25px;
+	margin: 100px auto 0 auto;
+	border: solid 1px #EEEEEE;
+	box-shadow: #DDDDDD 2px 2px 3px;
+}
+
+.workbenchmessage {
+	background: rgba(230,230,230,1);
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	display: none;
+	z-index: 100;
+}
+
+.workbenchmessage .window {
+	width: 400px;
+	padding: 15px 25px 15px 25px;
+	margin: 20% auto 0 auto;
+	text-align: center;
+	font: 20px/54px Arial;
+	color: #808080;
+}
+
+.workbenchmessage .window h1 {
+	margin: 0px;
+	padding: 0px;
+}
+
+.overlay .window h2 {
+	display: block;
+	font: 26px/30px Arial;
+	margin: 0px;
 }

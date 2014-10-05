@@ -18,8 +18,5 @@
 	</head>
 
 <body>
-	<div class="overlay">
-		<div class="window">
-			<h2>Settings</h2>
-		</div>
-	</div>
+	<div class="overlay"><div class="window"></div></div>
+	<div class="workbenchmessage"><div class="window"></div></div>

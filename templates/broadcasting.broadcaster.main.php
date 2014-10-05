@@ -37,8 +37,8 @@
 		}
 ?>
 <div class="heading">
-	<h1 class="logo"><i id="state" class="fa fa-circle"></i> Code Broadcast</h1>
-	<h2 class="logodesc">Open Source tool for real-time code broadcasting.</h2>
+	<h1 class="logo"><i id="state" class="fa fa-circle"></i> <?php print CB_SESSION_TITLE; ?></h1>
+	<h2 class="logodesc"><?php print CB_SESSION_SUBTITLE; ?></h2>
 </div>
 <div class="panel">
 	<h6>Broadcasting</h6>
@@ -90,26 +90,15 @@
 </div>
 <div class="block">
 	<div class="info" onclick="startindicator();">Presenter's code</div>
-	<div id="code"><pre>
-class Render {
-		
-	public static function renderPage( $template, $tags ) {
-		ob_start();
-			include( CB_ROOT_DIR . '/templates/' . $template . '.php' );
-		$contents = ob_get_contents();
-		ob_end_clean();
-			
-		include_once( CB_ROOT_DIR . '/templates/_system.headers.php' );
-		print $contents;
-	}
-		
-}
-</pre></div>
-	<script>$(document).ready(function() {
-  $('pre').each(function(i, block) {
-    hljs.highlightBlock(block);
-  });
-});</script>
+	<div id="code" style="width: 100%;height: 400px;">&lt;?php
+	</div>
+	<script src="templates/src-min/ace.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var editor = ace.edit("code");
+		editor.setTheme("ace/theme/github");
+		editor.setShowPrintMargin(false);
+		editor.getSession().setMode("ace/mode/php");
+	</script>
 </div>
 <div class="block opacity50">
 	<div class="info">Compilation result</div>

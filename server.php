@@ -9,6 +9,7 @@
 	
 	include( 'core/config/config.php' );
 	include( 'core/handler.core.php' );
-	Core::start();
+	
+	Core::initServer();
 	
 ?>

@@ -2,11 +2,10 @@
 	session_start();
 	
 	class Router {
-		
 		public static function route() {
-			switch( $_POST[ 'action' ] ) {
-				case null:
-				default:
+		
+			switch( OPERATING_MODE ) {
+				case 'BROADCAST':
 					Render::renderPage( 'broadcasting.broadcaster.main', array() );
 					break;
 			}
