@@ -239,7 +239,10 @@ function GenerateUID() {
     return text;
 }
 
-
+function CountTabs( line ) {
+	tabSymbol = '    ';
+	 alert( parseFloat( $( '.line' + (line) ).html().length - $( '.line' + (line) ).html().split( tabSymbol ).join( '' ).length )  );
+}
 
 
 
@@ -271,6 +274,7 @@ else {
 var PeerConnection = '';
 var PeerConnectState = 0;
 var PeerConnectionObject = 0;
+var FadingInitialized = 0;
 
 var LatestData = '';
 function Register_Peer( reconnect ) {
@@ -330,10 +334,19 @@ function Register_Peer( reconnect ) {
 								$( '.workbenchmessage .window' ).html( '<span id="awaiting">You\'re successfully connected to CodeBroadcast Server.<br />Currently there is no active code broadcasting.</span>' );
 							}
 							
-							if( Message[ 'currectCode' ] != LatestData && Message[ 'currectCode' ] != undefined ) {
-								$( '#code pre' ).html( Message[ 'currectCode' ].split( '<' ).join( '&lt;' ) );
-								LatestData = Message[ 'currectCode' ];
+							if( Message[ 'currectCode' ] != undefined ) {
+								LatestData = Message[ 'currectCode' ].split( '<' ).join( '&lt;' );
+								Lines = LatestData.split( "\n" );
+								position = ( Message[ 'cursor' ][ 'column' ] );
+								Lines[ Message[ 'cursor' ][ 'row' ] ] = [Lines[ Message[ 'cursor' ][ 'row' ] ].slice(0, position), '<div class="cursor">|</div>', Lines[ Message[ 'cursor' ][ 'row' ] ].slice(position)].join('');
+								$( '#code pre' ).html( Lines.join( "\n" ) );
 								HandleLines();
+							}
+							
+							if( Message[ 'cursor' ] ) {
+								$( '.line' + Message[ 'cursor' ][ 'row' ] ).addClass( 'currectline' );
+								if( FadingInitialized != 1 ) MakeFading( '.cursor', 250, 0.2 );
+								FadingInitialized = 1;
 							}
 							break;
 					}
@@ -363,11 +376,15 @@ function AskQuestion() {
 }
 
 var CodeLastValue = '';
+var CursorLastValueX = '';
+var CursorLastValueY = '';
 function SaveCurrentCode() {
 	if( BroadcastIndicator == 1 ) return false;
 	CurrentValue = editor.getValue();
-	if( CodeLastValue == CurrentValue ) { setTimeout( function() { SaveCurrentCode(); }, 20 ); return false; }
-
+	CurrentCursor = editor.selection.getCursor();
+	if( CodeLastValue == CurrentValue && CursorLastValueX == CurrentCursor[ 'row' ] && CursorLastValueY == CurrentCursor[ 'column' ] ) { setTimeout( function() { SaveCurrentCode(); }, 20 ); return false; }
+	CursorLastValueX = CurrentCursor[ 'row' ];
+	CursorLastValueY = CurrentCursor[ 'column' ];
 	CodeLastValue = CurrentValue;
 	$.each( ConnectedPeers,
 		function( peerID, client ) {
@@ -376,7 +393,8 @@ function SaveCurrentCode() {
 					answer: 'CB_Updated_Data',
 					
 					BroadcastEnabled: true,
-					currectCode: CurrentValue
+					currectCode: CurrentValue,
+					cursor: editor.selection.getCursor()
 				}
 			);
 		}

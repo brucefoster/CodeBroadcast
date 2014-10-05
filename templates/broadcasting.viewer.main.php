@@ -23,7 +23,6 @@
 <div class="break"></div>
 <div class="block">
 	<div class="info" onclick="startindicator();">Presenter's code</div>
-	
 		<div id="code">
 			<pre></pre>
 	</div>

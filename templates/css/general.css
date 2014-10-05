@@ -135,7 +135,7 @@ h2 {
 			width: 650px;
 		}
 		
-		.block:nth-child(2n+1) {
+		.block:nth-child(2n+2) {
 			width: 450px !important;
 		}
 		
@@ -146,10 +146,10 @@ h2 {
 
 	@media screen and (min-width: 1900px) {
 		.block {
-			width: 1025px;
+			width: 1025px !important;
 		}
 		
-		.block:nth-child(2n+1) {
+		.block:nth-child(2n+2) {
 			width: 800px !important;
 		}
 		
@@ -540,6 +540,14 @@ pre {
 	width: inherit;
 }
 
+.currectline {
+	padding: 0px;
+	background: #F9FAFF;
+	border: solid 1px #FFFFFF;
+	display: inline-block;
+	width: inherit;
+}
+
 .lineselector:hover {
 	background: #FFFFCC;
 	cursor: pointer;
@@ -611,4 +619,15 @@ pre {
 	position: absolute;
 	z-index: 5000;
 	display: none;
+}
+
+.cursor {
+	display: inline-block;
+	position: absolute;
+	width: 10px;
+	height: 15px;
+	font-size: 16px;
+	margin-top: -1px;
+	margin-left: -5px;
+	color: #008CFF;
 }
