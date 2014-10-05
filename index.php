@@ -1,5 +1,5 @@
 <?php
-	
+	error_reporting( 0 ); 
 	header( 'Content-type: text/html; charset=utf-8' );
 	define( 'CB_CORE_DIR', 	dirname( __FILE__ ) );
 	define( 'CB_ROOT_DIR', 	dirname( __FILE__ ) );

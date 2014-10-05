@@ -1,41 +1,4 @@
-<?php
-	include( TS_ROOT_DIR . '/pages/core.headers.php' );
-	
-	if( $_POST ) {
-		if( $_POST[ 'select' ] ) {
-			if( $_POST[ 'select' ] == $_SESSION[ 'CurrentTest' ][ 'CorrectID' ] ) define( 'SIGNIN_WARNING', 'Правильный ответ' ); else  define( 'SIGNIN_ERROR', 'Неправильный ответ!' );
-		}
-		
-		if( $_POST[ 'input' ] ) {
-			similar_text( $_POST[ 'input' ], $_SESSION[ 'CurrentTest' ][ 'CorrectID' ], $percent );
-			if( $percent >= $_SESSION[ 'CurrentTest' ][ 'CorrectSimilarity' ] ) define( 'SIGNIN_WARNING', 'Правильный ответ' ); else  define( 'SIGNIN_ERROR', 'Неправильный ответ!' );
-		}
-	}
-	
-	switch( $question[ 'qInputType' ] ) {
-			case 'SELECT':
-				$variants = array();
-				$correct  = $question[ 'qCorrectAnswerID' ];
-				for( $items = 1; $items <= 6; $items ++ ) {
-					if( $question[ 'qAnswer' . $items ] ) $variants[] = $question[ 'qAnswer' . $items ];
-				}
-				
-				$correctValue = $variants[ $correct - 1 ];
-				$answersList = null;
-				shuffle( $variants );
-				foreach( $variants as $key => $value ) {
-					$answersList .= '<label><input name="select" type="radio" value="' . $key . '" /> ' . $value . '</label><br />';
-					if( $value == $correctValue ) $_SESSION[ 'CurrentTest' ][ 'CorrectID' ] = $key;
-				}
-				break;
-			case 'INPUT':
-				$_SESSION[ 'CurrentTest' ][ 'CorrectID' ] = $question[ 'qDefinedAnswer' ];
-				$_SESSION[ 'CurrentTest' ][ 'CorrectSimilarity' ] = $question[ 'qSimilarity' ];
-				$answersList = '<input type="text" name="input" class="answer" placeholder="Введите ваш ответ..." />';
-				
-				break;
-		}
-?>
+
 <div class="heading">
 	<h1 class="logo"><i id="state" class="fa fa-circle"></i> <?php print CB_SESSION_TITLE; ?></h1>
 	<h2 class="logodesc"><?php print CB_SESSION_SUBTITLE; ?></h2>

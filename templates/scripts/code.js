@@ -101,9 +101,12 @@ function ReadConfigParam( param ) {
 }
 
 xFlag = 0;
+xStart = 0;
 xLast = '';
 function SendServerCommand() {
-	$.post( "server.php", { '_codebroadcast_action': 'Viewer_Action_GetSetting_And_Code' }, function( data ) {
+	xStart = 1;
+	req = $.post( "server.php", { '_codebroadcast_action': 'Viewer_Action_GetSetting_And_Code' }, function( data ) {
+		xStart = 0;
 		Config = ' ' + data;
 		if( ReadConfigParam( 'CB_Session_Broadcast' ) == '0' ) {
 			if( $( '.workbenchmessage .window' ).html().indexOf( 'wait') > 1 ) { setTimeout( function() { SendServerCommand(); }, 50 ); return false; }
