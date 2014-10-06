@@ -28,9 +28,9 @@
 	</div>
 	<script type="text/javascript">Viewer_Init();</script>
 </div>
-<div class="block opacity50">
+<div class="block compilation opacity50">
 	<div class="info">Compilation result</div>
-	<div class="unavailable">
+	<div class="compilationresult unavailable">
 		This content is currently unavailable.
 	</div>
 </div>

@@ -218,17 +218,6 @@ function MakeFading( element, interval, opacity, secondcall ) {
 
 function StopFading( element ) { fadingFlags[ element + 'state' ] = 2; }
 
-function Init_Connection() {
-	
-}
-
-var Config = '';
-function ReadConfigParam( param ) {
-	parts = Config.toString().split( param + '=' );
-	parts = parts[ 1 ].split( ';' );
-	return parts[ 0 ];
-}
-
 function GenerateUID() {
     text = "";
     possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -239,9 +228,43 @@ function GenerateUID() {
     return text;
 }
 
-function CountTabs( line ) {
-	tabSymbol = '    ';
-	 alert( parseFloat( $( '.line' + (line) ).html().length - $( '.line' + (line) ).html().split( tabSymbol ).join( '' ).length )  );
+function CompileCode( line ) {
+	$.post( 
+		'server.php',
+		{
+			'_codebroadcast_action': 'CB_Compile',
+			'data': editor.getValue()
+		},
+		function( data ) {
+			executionRequest = $.get( 
+				'tempdata/currentsession/exec.code.php',
+				function( getData ) {
+					$( '.compilation' ).removeClass( 'opacity50' );
+					$( '.compilationresult' ).html( getData );
+					$( '.compilationresult' ).removeClass( 'unavailable' );
+					$( '.compilationresult' ).addClass( 'compilationresult-class' );
+				}
+			).fail(function() {
+				$( '.compilation' ).removeClass( 'opacity50' );
+				$( '.compilationresult' ).html( '<div class="cbcompilationfail"><h5>CodeBroadcast Compilation Error</h5>Unable to compile the currect code because it contains fatal errors.</div>' );
+				$( '.compilationresult' ).removeClass( 'unavailable' );
+				$( '.compilationresult' ).addClass( 'compilationresult-class' );
+			}).always(
+				function() {
+					$.each( ConnectedPeers,
+						function( peerID, client ) {
+							client.send(
+								{
+									answer: 'CB_Compilation_Results',
+									Compilation_Results: $( '.compilationresult' ).html()
+								}
+							);
+						}
+					);
+				}
+			);
+		}
+	);
 }
 
 
@@ -283,7 +306,8 @@ function Register_Peer( reconnect ) {
 		PeerID,
 		{key: '50swixbllw12a9k9'}
 	);
-		
+	
+	
 	if( reconnect == true )
 		PeerConnectionObject = PeerConnection.reconnect('CodeBroadcastServer');
 	else
@@ -349,6 +373,16 @@ function Register_Peer( reconnect ) {
 								FadingInitialized = 1;
 							}
 							break;
+							
+						case 'CB_Compilation_Results':
+							if( Message[ 'Compilation_Results' ] ) {
+								$( '.compilation' ).removeClass( 'opacity50' );
+								$( '.compilationresult' ).html( Message[ 'Compilation_Results' ] );
+								$( '.compilationresult' ).removeClass( 'unavailable' );
+								$( '.compilationresult' ).addClass( 'compilationresult-class' );
+							}
+							
+							break;
 					}
 				}
 			);
@@ -365,6 +399,10 @@ function Register_Peer( reconnect ) {
 		);
 		
 }
+
+/* 
+ *  Client-Side P2P: send line ID with question
+ */
 
 function AskQuestion() {
 	PeerConnectionObject.send(
@@ -403,8 +441,9 @@ function SaveCurrentCode() {
 }
 
 function Viewer_Init() {
-	Register_Peer();
 	$( '.workbenchmessage' ).css( { display: 'block' } );
+	$( '.workbenchmessage .window' ).html( '<span id="conn">Your browser does not support Peer-to-Peer connections.</span>' );
+	Register_Peer();
 	$( '.workbenchmessage .window' ).html( '<span id="conn">Establishing Peer-to-Peer connection with CodeBroadcast Server...</span>' );
 	MakeFading( '#conn', 500, 0.2 );
 }

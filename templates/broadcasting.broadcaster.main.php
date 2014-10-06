@@ -16,7 +16,7 @@
 </div>
 <div class="panel">
 	<h6>Code options</h6>
-	<div class="item compile">
+	<div class="item compile" onclick="CompileCode();">
 		<i class="fa fa-play"></i>
 		Compile
 	</div>
@@ -65,10 +65,10 @@
 		editor.getSession().setMode("ace/mode/php");
 	</script>
 </div>
-<div class="block opacity50">
+<div class="block compilation opacity50">
 	<div class="info">Compilation result</div>
-	<div class="unavailable">
-		This content is currently unavailable.
+	<div class="compilationresult unavailable">
+	This content is currently unavailable.
 	</div>
 </div>
 </form>

@@ -628,6 +628,66 @@ pre {
 	height: 15px;
 	font-size: 16px;
 	margin-top: -1px;
+	font-weight: bold;
 	margin-left: -5px;
-	color: #008CFF;
+	color: #101010 !important;
+}
+
+.compilationresult-class {
+	padding: 10px 30px 10px 30px;
+	font: 14px/20px Arial;
+	min-height: 250px;
+}
+
+.cbcompilcationresult {
+	background: #ffffff; /* Old browsers */
+	background: -moz-linear-gradient(top, #ffffff 0%, #e5e5e5 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e5e5e5)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #ffffff 0%,#e5e5e5 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #ffffff 0%,#e5e5e5 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #ffffff 0%,#e5e5e5 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
+	border: solid 1px #DDDDDD;
+	border-radius: 3px;
+	padding: 10px 15px 10px 15px;
+	margin-bottom: 20px;
+	font: 12px/26px Arial;
+	letter-spacing: 0.025em;
+	color: #909090;
+	margin-top: 15px;
+}
+
+.cbcompilationfail {
+	background: #ffefef; /* Old browsers */
+	background: -moz-linear-gradient(top, #ffefef 0%, #ffe2e2 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffefef), color-stop(100%,#ffe2e2)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #ffefef 0%,#ffe2e2 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #ffefef 0%,#ffe2e2 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #ffefef 0%,#ffe2e2 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #ffefef 0%,#ffe2e2 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffefef', endColorstr='#ffe2e2',GradientType=0 ); /* IE6-9 */
+	border: solid 1px darkred;
+	border-radius: 3px;
+	padding: 20px 15px 20px 15px;
+	margin-bottom: 20px;
+	font: 12px/28px Arial;
+	letter-spacing: 0.025em;
+	color: #C10B0B;
+	margin-top: 65px;
+}
+
+.cbcompilcationfooter {
+	border-top: solid 1px #DDDDDD;
+	padding-top: 5px;
+	margin-top: 45px;
+	font: 12px/20px Arial;
+	letter-spacing: 0.025em;
+	color: #909090;
+}
+
+.cbcompilcationresult h5, .cbcompilationfail h5 {
+	font: 16px/16px Arial;
+	color: #404040;
+	margin: 0px;
 }
