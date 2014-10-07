@@ -15,7 +15,7 @@
 </div>
 <div class="panel">
 	<h6>Feedback</h6>
-	<div class="item compile">
+	<div class="item compile" onclick="SendFeedback();">
 		<i class="fa fa-send"></i>
 		Send
 	</div>

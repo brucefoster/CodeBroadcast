@@ -59,6 +59,13 @@ if (!Object.prototype.unwatch) {
 	});
 }
 
+Object.size = function(obj) {
+    var size = 0, key;
+    for (key in obj) {
+        if (obj.hasOwnProperty(key)) size++;
+    }
+    return size;
+};
 
 
 
@@ -70,6 +77,7 @@ if (!Object.prototype.unwatch) {
  *
  */
 var ConnectedPeers = {};
+var FeedBackList = {};
 var ServerPeer = '';
 var ConnectedUsers = 0;
 function StartBroadcastingServer() {
@@ -95,7 +103,7 @@ function StartBroadcastingServer() {
 									PeerConnectionObject.send(
 										{
 											answer: 'CB_Register_Reply',
-											BroadcastEnabled: false
+											BroadcastEnabled: ( BroadcastIndicator == 1 ? true : false )
 										}
 									);
 									
@@ -115,6 +123,11 @@ function StartBroadcastingServer() {
 							$( '.askselector' ).css( { display: 'block', marginTop: ( 10 + 14 * SelectedLine ) } );
 							setTimeout( function() { $( '.askselector' ).fadeOut( 500 ); }, 3000 );
 							break;
+							
+						case 'CB_Send_Feedback':
+							FeedBackList[ Message[ 'person' ] ] = Message[ 'code' ];
+							$( '#sentFeedbacks' ).html( Object.size( FeedBackList ) );
+							break;
 					}
 				}
 			);
@@ -122,6 +135,35 @@ function StartBroadcastingServer() {
 	);
 }
 
+
+function _BuildTable( columns, data ) {
+	table = '<table><tr>';
+	$.each( columns, function( value ) { table += '<td>' + value + '</td>'; } )
+	
+	table += '</tr>';
+	$.each( data, function( columns ) { 
+		table += '<tr>';
+		$.each( columns, function( value ) { table += '<td>' + value + '</td>'; } )
+		table += '</tr>'; 
+	});
+	
+	table += '</table>';
+	return table;
+}
+
+function ShowFeedbacks() {
+	$( '.overlay' ).fadeIn( 'fast' );
+	$( '.overlay .window' ).html( '<h2>Feedbacks</h2><div class="feedbackdata" style="height: 360px;overflow-y: scroll;"></div>' );
+	$.each( FeedBackList, function( key, value ) {
+		$( '.feedbackdata' ).append( '<div class="feedbacklink"><a href="" onclick="ShowCode(\'' + key + '\');return false;">' + key + '</a></div>' );
+	});
+	
+}
+
+function ShowCode( codeID ) {
+	$( '.overlay .window' ).html( '<h2>Feedback from ' + codeID + '</h2><div id="code" style="height: 360px;"><pre>' + FeedBackList[ codeID ] + '</pre></div> <div class="panel" style="text-align: right;"><div class="item" onclick="CloseFeedback();"><i class="fa fa-times"></i> Close window</div></div>' );
+	HandleLines();
+}
 
 function GoLive() {
 	if( BroadcastIndicator == 0 ) return false;
@@ -446,4 +488,30 @@ function Viewer_Init() {
 	Register_Peer();
 	$( '.workbenchmessage .window' ).html( '<span id="conn">Establishing Peer-to-Peer connection with CodeBroadcast Server...</span>' );
 	MakeFading( '#conn', 500, 0.2 );
+}
+
+var editor = '';
+function SendFeedback() {
+	$( '.overlay' ).fadeIn( 'fast' );
+	$( '.overlay .window' ).html( '<h2>Send Feedback</h2><input type="text" class="username" placeholder="Name, surname" /><div id="code" style="width: 100%;height: 400px;margin-top: 20px;">&lt;?php</div><div class="panel" style="text-align: right;"><div class="item compile" onclick="SendFeedbackText();"><i class="fa fa-send"></i> Send Feedback</div></div>' );
+		editor = ace.edit("code");
+		editor.setTheme("ace/theme/github");
+		editor.setShowPrintMargin(false);
+		editor.getSession().setMode("ace/mode/php");
+}
+
+function SendFeedbackText() {
+	if( $( '.username' ).val() == '' ) { alert( 'Please, fill out the field "Name, surname".' ); return false; }
+	PeerConnectionObject.send(
+		{
+			action: 'CB_Send_Feedback',
+			code:	editor.getValue().split( '<' ).join( '&lt;' ),
+			person:	$( '.username' ).val().split( '<' ).join( '&lt;' )
+		}
+	);
+	$( '.overlay .window' ).html( '<h2>Send Feedback</h2> <br /><div class="successtext"><i class="fa fa-check"></i> Feedback sent successfully. </div><div class="panel" style="text-align: right;"><div class="item" onclick="CloseFeedback();"><i class="fa fa-times"></i> Close window</div></div>' );
+}
+
+function CloseFeedback() {
+	$( '.overlay' ).fadeOut( 'fast' );
 }

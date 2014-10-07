@@ -10,6 +10,7 @@
 		<script src="templates/scripts/code.js"></script>
 		<script src="http://cdn.peerjs.com/0.3/peer.js"></script>
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+		<script src="templates/src-min/ace.js" type="text/javascript" charset="utf-8"></script>
 		<!--[if IE 7]>
 			<style type="text/css"> 
 			li { display: inline !important;margin-left: 0px !important; } 

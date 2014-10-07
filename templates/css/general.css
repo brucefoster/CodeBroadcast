@@ -677,6 +677,18 @@ pre {
 	margin-top: 65px;
 }
 
+.username {
+	width: 580px;
+	padding: 6px 10px 6px 10px;
+	
+	font: 14px/22px Arial;
+	border: solid 1px #DDDDDD;
+	border-radius: 5px;
+	box-shadow: inset #EEEEEE 0px 0px 5px 2px;
+	margin-top: 10px;
+	letter-spacing: 0.025em;
+}
+
 .cbcompilcationfooter {
 	border-top: solid 1px #DDDDDD;
 	padding-top: 5px;
@@ -690,4 +702,30 @@ pre {
 	font: 16px/16px Arial;
 	color: #404040;
 	margin: 0px;
+}
+
+.successtext {
+	font: 16px/26px Arial;
+	color: #404040;
+	margin-bottom: 14px;
+}
+
+.successtext i {
+	color: #1ABF0B;
+	margin-right: 5px;
+}
+
+.feedbacklink {
+	padding: 8px 15px 8px 15px;
+	border-bottom: dotted 1px #F8F8F8;
+}
+
+.feedbacklink a {
+	font: 14px/20px Arial;
+	text-decoration: none;
+	color: #8095F2;
+}
+
+.feedbacklink a:hover {
+	color: #4B67E3;
 }
