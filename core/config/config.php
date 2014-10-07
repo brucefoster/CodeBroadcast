@@ -1,9 +1,9 @@
 <?php
 	
-	define( 'CB_DATABASE_DBNAME',	 	'studcenter' );
-	define( 'CB_DATABASE_USERNAME', 	'root' );
-	define( 'CB_DATABASE_PASSWORD', 	'test' );
-	define( 'CB_DATABASE_SERVER',	 	'127.0.0.1' );
+	define( 'CB_DATABASE_DBNAME',	 	'' );
+	define( 'CB_DATABASE_USERNAME', 	'' );
+	define( 'CB_DATABASE_PASSWORD', 	'' );
+	define( 'CB_DATABASE_SERVER',	 	'' );
 	
 	
 	# Flag CB_SESSION_USERS_EMPTY:
