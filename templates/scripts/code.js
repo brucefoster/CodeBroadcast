@@ -1,3 +1,8 @@
+var Options = {
+	'PeerJS_Server': 'localhost',
+	'PeerJS_Port': 9000,
+	'PeerJS_Domain'
+};
 var LiveState = 0;
 var BroadcastIndicator = 2;
 function StartIndicator() {
@@ -83,9 +88,7 @@ var ConnectedUsers = 0;
 function StartBroadcastingServer() {
 	ServerPeer = new Peer(
 		'CodeBroadcastServer',
-		{
-			key: '50swixbllw12a9k9'
-		}
+		{host: Options[ 'PeerJS_Server' ], port: Options[ 'PeerJS_Port' ], path: Options[ 'PeerJS_Domain' ]}
 	);
 	
 	ServerPeer.on(
@@ -346,7 +349,7 @@ function Register_Peer( reconnect ) {
 		
 	if( PeerConnection == '' ) PeerConnection = new Peer(
 		PeerID,
-		{key: '50swixbllw12a9k9'}
+		{host: Options[ 'PeerJS_Server' ], port: Options[ 'PeerJS_Port' ], path: Options[ 'PeerJS_Domain' ]}
 	);
 	
 	
