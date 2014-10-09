@@ -3,7 +3,7 @@ CodeBroadcast
 
 Summary
 -------------
-* Uses WebRTC connection based on PeerJS Technology (see peerjs).
+* Uses WebRTC connection based on PeerJS Technology (see https://github.com/peers/peerjs).
 * Requires browser with WebRTC and localStorage support, PHP
 * Written on PHP and JavaScript, works on P2P connection
 * Tool to broadcast code in real-time to multiple users
