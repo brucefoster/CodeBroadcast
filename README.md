@@ -3,11 +3,13 @@ CodeBroadcast
 
 Summary
 -------------
-* Written on PHP and JavaScript, works with P2P connection
+* Uses WebRTC connection based on PeerJS Technology (see peerjs).
+* Requires browser with WebRTC and localStorage support, PHP
+* Written on PHP and JavaScript, works on P2P connection
 * Tool to broadcast code in real-time to multiple users
 * Can be used locally
 * Can be used via Internet for webinars
-* Supports PHP code broadcast and execution (_for now_)
+* Supports PHP code broadcast and execution (_for now_, _planned: C, C++ support, JavaScript & HTML support_)
 * Includes callback for answering
 * Ability to give and check tasks
 
