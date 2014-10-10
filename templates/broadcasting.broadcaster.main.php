@@ -1,7 +1,7 @@
 
 <div class="heading">
-	<h1 class="logo"><i id="state" class="fa fa-circle"></i> <?php print CB_SESSION_TITLE; ?></h1>
-	<h2 class="logodesc"><?php print CB_SESSION_SUBTITLE; ?></h2>
+	<h1 class="logo"><i id="state" class="fa fa-circle"></i> <?php print CB_DEFAULT_TITLE; ?></h1>
+	<h2 class="logodesc"><?php print CB_DEFAULT_SUBTITLE; ?></h2>
 </div>
 <div class="panel">
 	<h6>Broadcasting</h6>

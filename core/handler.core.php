@@ -16,13 +16,10 @@
 		public static function view() {
 			self::__requireHandler(
 				array(
-					'database',
 					'render'
-					//'broadcast'
 				)
 			);
 			
-			//Database::connect();
 			Render::renderPage( 'broadcasting.viewer.main', array() );
 		}
 		
@@ -39,35 +36,33 @@
 		public static function broadcast() {
 			// Initializing new broadcast.
 			// Setting default broadcast settings.
-			$currentSessionSettings = fopen( CB_ROOT_DIR . '/tempdata/currentsession/session.settings.ini', 'w+' );
-			fwrite( $currentSessionSettings, CB_SESSION_DEFAULT_SETTINGS );
-			fclose( $currentSessionSettings );
 			
-			// Empty last session user list.
-			$currentUsersList = fopen( CB_ROOT_DIR . '/tempdata/currentsession/session.users.ini', 'w+' );
-			fwrite( $currentUsersList, '0' );
-			fclose( $currentUsersList );
 			
 			self::__requireHandler(
 				array(
-					'database',
 					'render'
 				)
 			);
 			
-			//Database::connect();
-			Render::renderPage( 'broadcasting.broadcaster.main', array() );
+			if( $_SESSION[ 'CodeBroadcast_Broadcaster_Auth_Passed' ] ) Render::renderPage( 'broadcasting.broadcaster.main', array() );
+				else {
+					if( $_POST[ 'password' ] !== CB_BROADCASTER_PASSWORD ) define( 'SIGNIN_ERROR', 'Provided password is wrong.' );
+						else {
+							$_SESSION[ 'CodeBroadcast_Broadcaster_Auth_Passed' ] = true;
+							header( 'Location: ?' );
+							exit();
+						}
+					Render::renderPage( 'broadcasting.broadcaster.auth', array() );
+				}
 		}
 		
 		public static function initServer() {
 			self::__requireHandler(
 				array(
-					'database',
 					'render'
 				)
 			);
 			
-			//Database::connect();
 			switch( $_POST[ '_codebroadcast_action' ] ? $_POST[ '_codebroadcast_action' ] : $_GET[ 'codebroadcast_action' ] ) {
 				case 'Presenter_CB_Action_UpdateCode':
 					break;

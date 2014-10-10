@@ -7,7 +7,14 @@
 		<link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
 		<link rel="stylesheet" href="templates/css/general.css" media="all" />
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		<script src="templates/scripts/code.js"></script>
+		<?php
+			if( CB_Broadcaster_Mode === true ) {
+		?>
+			<script src="templates/scripts/js.server.broadcast.php"></script>
+		<?php
+			}
+		?>
+			<script src="templates/scripts/code.js"></script>
 		<script src="http://cdn.peerjs.com/0.3/peer.js"></script>
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
 		<script src="templates/src-min/ace.js" type="text/javascript" charset="utf-8"></script>

@@ -1,5 +1,6 @@
 <?php
 	
+	
 	define( 'CB_DATABASE_DBNAME',	 	'' );
 	define( 'CB_DATABASE_USERNAME', 	'' );
 	define( 'CB_DATABASE_PASSWORD', 	'' );
@@ -32,7 +33,9 @@
 	#				 DEFAULT:	'1'
 	#				  CAN BE:	'0' or '1'
 	
-	define( 'CB_SESSION_TITLE',		'Code Broadcast' );
-	define( 'CB_SESSION_SUBTITLE',	'Open Source tool for real-time code broadcasting.' );
+	define( 'CB_DEFAULT_TITLE',		'Code Broadcast' );
+	define( 'CB_DEFAULT_SUBTITLE',	'Open Source tool for real-time code broadcasting.' );
+	
+	define( 'CB_BROADCASTER_PASSWORD',	'admin' );
 	
 	define( 'CB_SESSION_DEFAULT_SETTINGS',	 	'CB_Session_Broadcast=0;CB_Compilation_Enabled=0;CB_Session_Name=' . CB_SESSION_TITLE . ';CB_Session_Description=' . CB_SESSION_SUBTITLE . ';CB_Current_Window=WINDOW_COMPILE;CB_Register_Required=1;' );

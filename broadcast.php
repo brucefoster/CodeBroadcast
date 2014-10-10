@@ -6,8 +6,9 @@
 	
 	define( 'DEBUG_START_TIME', 		microtime( true ) );
 	define( 'DEBUG_PROFILING_ENABLED', 	false );
+	define( 'CB_Broadcaster_Mode', 		true );
 	
-	include( 'core/config/config.php' );
+	include( 'core/config/server.config.php' );
 	include( 'core/handler.core.php' );
 	Core::broadcast();
 	

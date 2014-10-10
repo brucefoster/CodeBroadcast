@@ -7,7 +7,7 @@
 	define( 'DEBUG_START_TIME', 		microtime( true ) );
 	define( 'DEBUG_PROFILING_ENABLED', 	false );
 	
-	include( 'core/config/config.php' );
+	include( 'core/config/server.config.php' );
 	include( 'core/handler.core.php' );
 	
 	Core::initServer();

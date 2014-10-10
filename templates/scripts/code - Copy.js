@@ -2,7 +2,7 @@ var Options = {
 	'PeerJS_Server': 'localhost',
 	'PeerJS_Port': 9000,
 	'PeerJS_Domain': '/'
-}; 
+};
 var LiveState = 0;
 var BroadcastIndicator = 2;
 function StartIndicator() {
