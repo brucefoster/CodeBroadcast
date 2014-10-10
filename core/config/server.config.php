@@ -38,4 +38,3 @@
 	
 	define( 'CB_BROADCASTER_PASSWORD',	'admin' );
 	
-	define( 'CB_SESSION_DEFAULT_SETTINGS',	 	'CB_Session_Broadcast=0;CB_Compilation_Enabled=0;CB_Session_Name=' . CB_SESSION_TITLE . ';CB_Session_Description=' . CB_SESSION_SUBTITLE . ';CB_Current_Window=WINDOW_COMPILE;CB_Register_Required=1;' );

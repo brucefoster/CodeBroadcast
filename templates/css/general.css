@@ -142,7 +142,7 @@ h2 {
 			width: 650px;
 		}
 		
-		.block:nth-child(2n+2) {
+		.block:nth-child(2n+1) {
 			width: 450px !important;
 		}
 		
@@ -156,7 +156,7 @@ h2 {
 			width: 1025px !important;
 		}
 		
-		.block:nth-child(2n+2) {
+		.block:nth-child(2n+1) {
 			width: 800px !important;
 		}
 		
@@ -281,6 +281,13 @@ h1 i {
 	vertical-align: middle;
 	margin-right: 5px;
 	margin-top: -5px;
+}
+
+.caption {
+	display: inline-block;
+	width: 200px;
+	padding-top: 10px;
+	font: 14px/20px Arial;
 }
 
 .input {

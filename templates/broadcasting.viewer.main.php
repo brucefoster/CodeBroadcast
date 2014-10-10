@@ -1,6 +1,6 @@
 <div class="heading">
-	<h1 class="logo"><?php print CB_SESSION_TITLE; ?></h1>
-	<h2 class="logodesc"><?php print CB_SESSION_SUBTITLE; ?></h2>
+	<h1 class="logo"><?php print CB_DEFAULT_TITLE; ?></h1>
+	<h2 class="logodesc"><?php print CB_DEFAULT_SUBTITLE; ?></h2>
 </div>
 <div class="panel">
 	<h6>Current session</h6>
@@ -15,10 +15,12 @@
 </div>
 <div class="panel">
 	<h6>Feedback</h6>
-	<div class="item compile" onclick="SendFeedback();">
+	<div class="item feedback compile disabled" onclick="SendFeedback();">
 		<i class="fa fa-send"></i>
 		Send
 	</div>
+</div>
+<div class="panel">
 </div>
 <div class="break"></div>
 <div class="block">

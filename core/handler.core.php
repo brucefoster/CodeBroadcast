@@ -34,11 +34,7 @@
 		*/
 	
 		public static function broadcast() {
-			// Initializing new broadcast.
-			// Setting default broadcast settings.
-			
-			
-			self::__requireHandler(
+				self::__requireHandler(
 				array(
 					'render'
 				)
@@ -97,7 +93,7 @@
 				case 'CB_Compile':
 					$currentCodeData = fopen( CB_ROOT_DIR . '/tempdata/currentsession/exec.code.php', 'w+' );
 					$header = '<?php print "<div class=\"cbcompilcationresult\"><h5>CodeBroadcast Compilation Result</h5>\r\nCurrent compilation was built at " . date( \'d.m.Y H:i:s\') . ".</div>"; ?>';
-					$footer = '<?php print "<div class=\"cbcompilcationfooter\">Code execution was successfull. No errors found during execution.</div>"; ?>';
+					$footer = '<?php print "<div class=\"cbcompilcationfooter\">Called address: <b>page.php?" . $_SERVER[ "QUERY_STRING" ] . "</b><br />GET Parameters: { "; foreach( $_GET as $key => $value ) print "<b>$key:</b> \'$value\'; "; print "}<br />Code execution was successfull. No errors found during execution.</div>"; ?>';
 					fwrite( $currentCodeData, $header . $_POST[ 'data' ] . ( strpos( $_POST[ 'data' ], '?>' ) ? null : " ?>\r\n" ) . $footer );
 					fclose( $currentCodeData );
 					break;

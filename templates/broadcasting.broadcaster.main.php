@@ -20,27 +20,23 @@
 		<i class="fa fa-play"></i>
 		Compile
 	</div>
-	<div class="item">
-		<i class="fa fa-save"></i>
-		Save locally
+	<div class="item" onclick="CompileCodeWithSettings();">
+		<i class="fa fa-cog"></i>
+		Parameters
+	</div>
+	<div class="item" onclick="CompileCodeWithSettings( true );">
+		<i class="fa fa-arrow-circle-left" style="color: #0B99BC;"></i> Run
 	</div>
 </div>
 <div class="panel">
 	<h6>Feedback</h6>
-	<div class="item" onclick="SendData();">
+	<div class="item feedbackon" onclick="SetFeedBackState( true );">
 		<i class="fa fa-eye"></i>
-		Show
+		Enable
 	</div>
-	<div class="item disabled">
+	<div class="item feedbackoff disabled" onclick="SetFeedBackState( false );">
 		<i class="fa fa-times"></i>
-		Hide
-	</div>
-</div>
-<div class="panel">
-	<h6>Settings</h6>
-	<div class="item">
-		<i class="fa fa-cog"></i>
-		Settings
+		Disable
 	</div>
 </div>
 <div class="status">
