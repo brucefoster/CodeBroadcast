@@ -229,7 +229,7 @@ var editor = '';
 function SendFeedback() {
 	if( FeedBackDisabled == true ) return false;
 	$( '.overlay' ).fadeIn( 'fast' );
-	$( '.overlay .window' ).html( '<h2>Send Feedback</h2><input type="text" class="username" placeholder="Name, surname" /><div id="code" style="width: 100%;height: 400px;margin-top: 20px;">&lt;?php</div><div class="panel" style="text-align: right;"><div class="item compile" onclick="SendFeedbackText();"><i class="fa fa-send"></i> Send Feedback</div></div>' );
+	$( '.overlay .window' ).html( '<h2>Send Feedback</h2><input type="text" class="username" placeholder="Name, surname" /><div id="code" style="width: 100%;height: 400px;margin-top: 20px;">&lt;?php</div><div class="panel" style="text-align: right;"><div class="item compile" onclick="SendFeedbackText();"><i class="fa fa-send"></i> Send Feedback</div> or <a href="" onclick="CloseFeedback();return false;">Cancel</a></div>' );
 		editor = ace.edit("code");
 		editor.setTheme("ace/theme/github");
 		editor.setShowPrintMargin(false);

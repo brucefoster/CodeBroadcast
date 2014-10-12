@@ -232,6 +232,20 @@ h2 {
 	padding: 0px 15px 0px 15px;
 }
 
+.panel {
+	font: 14px/30px Arial;
+	color: #404040;
+}
+
+.panel a {
+	font: 14px/30px Arial;
+	color: #2B91E5;
+}
+
+.panel a:hover {
+	color: #18517F;
+}
+
 .panel .item.compile {
 	background: #686868; /* Old browsers */
 background: -moz-linear-gradient(top, #686868 0%, #565656 100%); /* FF3.6+ */

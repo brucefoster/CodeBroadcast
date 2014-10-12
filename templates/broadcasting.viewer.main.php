@@ -8,10 +8,7 @@
 		<i class="fa fa-info-circle" style="color: #4F95CD;"></i>
 		Ask question
 	</div>
-	<div class="item">
-		<i class="fa fa-save"></i>
-		Save locally
-	</div>
+
 </div>
 <div class="panel">
 	<h6>Feedback</h6>
