@@ -6,7 +6,7 @@ CodeBroadcast is a tool to broadcast PHP code in **real-time**:
 It's simple and works with **WebRTC** which makes it fast and don't requires lots of PC resources, so you can broadcast your code even **from your tablet**.
 
 Also you can **execute your code directly from broadcaster's interface** without leaving it and share execution result between connected viewers. Execution with **custom GET parameters** supported too.
-![Broadcaster Compilation Interface](http://brucefoster.github.io/Timetable/shared/advanced.png)
+<center><a href="http://brucefoster.github.io/Timetable/shared/advanced.png" style="text-align: center;"><img src="http://brucefoster.github.io/Timetable/shared/advanced.png" align="center" width="400" ></a></center>
 
 Your code will be shown on each connected users device simultaneously.
 ![User's Interface](http://brucefoster.github.io/Timetable/shared/user.png) 
