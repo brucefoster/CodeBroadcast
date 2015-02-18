@@ -1,14 +1,18 @@
 ####What is CodeBroadcast?
 
-CodeBroadcast is a tool to broadcast PHP code in real-time:
+CodeBroadcast is a tool to broadcast PHP code in **real-time**:
 ![Broadcaster Interface](http://brucefoster.github.io/Timetable/shared/broadcaster.png)
 
-It's simple and works with WebRTC which makes it fast and don't requires lots of PC resources, so you can broadcast your code even from your tablet.
+It's simple and works with **WebRTC** which makes it fast and don't requires lots of PC resources, so you can broadcast your code even **from your tablet**.
 
-Also you can execute your code directly from broadcaster's interface without leaving it and share execution result between connected viewers. Execution with custom GET parameters supported too.
+Also you can **execute your code directly from broadcaster's interface** without leaving it and share execution result between connected viewers. Execution with **custom GET parameters** supported too.
+![Broadcaster Compilation Interface](http://brucefoster.github.io/Timetable/shared/advanced.png)
 
 Your code will be shown on each connected users device simultaneously.
 ![User's Interface](http://brucefoster.github.io/Timetable/shared/user.png) 
+
+Using **Feedback feature**, you can review code sent by your viewers and give them tasks. 
+![Broadcaster Feedback Interface](http://brucefoster.github.io/Timetable/shared/feedback.png)
 
 
 ####Features
@@ -16,8 +20,8 @@ Your code will be shown on each connected users device simultaneously.
 * Requires browser with WebRTC and localStorage support, PHP
 * Written on PHP and JavaScript
 * Tool to broadcast code in real-time to multiple users
-* Can be used locally
-* Can be ussed via Internet for webinars
+* Can be **used locally**
+* Can be ussed via Internet for **webinars**
 * Supports PHP code broadcast and execution (_for now_, _planned: C, C++ support, JavaScript & HTML support_)
 * Includes callback for answering
 
@@ -26,7 +30,7 @@ Your code will be shown on each connected users device simultaneously.
 
 
 ####For which purposes can be used
-* University education
+* University **education**
 * Webinars
 * Co-working
 
