@@ -29,7 +29,7 @@
 		*	@function	void	broadcast
 		*	@return		—		—
 		*	@author				Bruce Foster
-		*	@desc				0.1.01
+		*	@desc				0.1.03
 		*
 		*/
 	
@@ -42,7 +42,7 @@
 			
 			if( $_SESSION[ 'CodeBroadcast_Broadcaster_Auth_Passed' ] ) Render::renderPage( 'broadcasting.broadcaster.main', array() );
 				else {
-					if( $_POST[ 'password' ] !== CB_BROADCASTER_PASSWORD ) define( 'SIGNIN_ERROR', 'Provided password is wrong.' );
+					if( $_POST[ 'password' ] !== CB_BROADCASTER_PASSWORD && !empty( $_POST[ 'password' ] ) ) define( 'SIGNIN_ERROR', 'Provided password is wrong.' );
 						else {
 							$_SESSION[ 'CodeBroadcast_Broadcaster_Auth_Passed' ] = true;
 							header( 'Location: ?' );
@@ -76,21 +76,10 @@
 					fwrite( $currentSessionSettings, str_replace( 'CB_Session_Broadcast=1', 'CB_Session_Broadcast=0', $currentSettings ) );
 					fclose( $currentSessionSettings );
 					break;
-					
-				case 'Register_Peer':
-					if( $_SESSION[ 'Peer_Registered' ] == true ) print $_SESSION[ 'Peer_Registered_ID' ];
-					else {
-						$currentUserID = file_get_contents(  CB_ROOT_DIR . '/tempdata/currentsession/session.user.ini' );
-						$_SESSION[ 'Peer_Registered' ] = true;
-						$_SESSION[ 'Peer_Registered_ID' ] = $currentUserID + 1;
-						print $currentUserID + 1;
-						$currentUserIDList = fopen( CB_ROOT_DIR . '/tempdata/currentsession/session.settings.ini', 'w+' );
-						fwrite( $currentUserIDList, $currentUserID + 1 );
-						fclose( $currentUserIDList );
-					}
-					break;
-					
+
 				case 'CB_Compile':
+					if( !$_SESSION[ 'CodeBroadcast_Broadcaster_Auth_Passed' ] ) 
+						return false;
 					$currentCodeData = fopen( CB_ROOT_DIR . '/tempdata/currentsession/exec.code.php', 'w+' );
 					$header = '<?php print "<div class=\"cbcompilcationresult\"><h5>CodeBroadcast Compilation Result</h5>\r\nCurrent compilation was built at " . date( \'d.m.Y H:i:s\') . ".</div>"; ?>';
 					$footer = '<?php print "<div class=\"cbcompilcationfooter\">Called address: <b>page.php?" . $_SERVER[ "QUERY_STRING" ] . "</b><br />GET Parameters: { "; foreach( $_GET as $key => $value ) print "<b>$key:</b> \'$value\'; "; print "}<br />Code execution was successfull. No errors found during execution.</div>"; ?>';

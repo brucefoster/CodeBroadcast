@@ -47,7 +47,7 @@
 	<div class="info">Active users:</div>
 	<div class="data"><i class="fa fa-users"></i> <span id="connectedViewers">0</span></div>
 	<div class="info">Feedbacks:</div>
-	<div class="data" onclick="ShowFeedbacks();"><i class="fa fa-reply"></i> <span id="sentFeedbacks">0</span> feedbacks</div>
+	<div class="data hand feedbackCounter" onclick="ShowFeedbacks();"><i class="fa fa-reply"></i> <span id="sentFeedbacks">0</span> feedbacks</div>
 </div>
 <div class="block">
 	<div class="info" onclick="startindicator();">Presenter's code</div>

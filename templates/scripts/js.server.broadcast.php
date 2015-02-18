@@ -37,6 +37,7 @@ Object.size = function(obj) {
  */
 var ConnectedPeers = {};
 var FeedBackList = {};
+var FeedBackReadList = {};
 var ServerPeer = '';
 var ConnectedUsers = 0;
 function StartBroadcastingServer() {
@@ -90,7 +91,13 @@ function StartBroadcastingServer() {
 							
 						case 'CB_Send_Feedback':
 							FeedBackList[ Message[ 'person' ] ] = Message[ 'code' ];
+							FeedBackReadList[ Message[ 'person' ] ] = false;
 							$( '#sentFeedbacks' ).html( Object.size( FeedBackList ) );
+							$( '.feedbackCounter' ).css( { color: 'red' } );
+							$( '.feedbackCounter' ).fadeTo( 2000, 0, function() {
+								$( '.feedbackCounter' ).css( { color: '#505050' } );
+								$( '.feedbackCounter' ).fadeTo( 50, 1 );
+							} );
 							break;
 					}
 				}
@@ -119,14 +126,22 @@ function ShowFeedbacks() {
 	$( '.overlay' ).fadeIn( 'fast' );
 	$( '.overlay .window' ).html( '<h2>Feedbacks</h2><div class="feedbackdata" style="height: 360px;overflow-y: scroll;"></div>' );
 	$.each( FeedBackList, function( key, value ) {
-		$( '.feedbackdata' ).append( '<div class="feedbacklink"><a href="" onclick="ShowCode(\'' + key + '\');return false;">' + key + '</a></div>' );
+		$( '.feedbackdata' ).append( '<div class="feedbacklink ' + ( FeedBackReadList[ key ] === true ? 'read' : '' ) + '"><a href="" onclick="ShowCode(\'' + key + '\');return false;">Feedback from ' + key + '</a>' + ( FeedBackReadList[ key ] === true ? ' (read)' : ' (unread)' ) + '</div>' );
 	});
 	
+	$( '.overlay .window' ).append( '<div class="panel" style="text-align: right;"><div class="item" onclick="CloseFeedback();"><i class="fa fa-times"></i> Close window</div></div>' );
 }
 
 function ShowCode( codeID ) {
-	$( '.overlay .window' ).html( '<h2>Feedback from ' + codeID + '</h2><div id="code" style="height: 360px;"><pre>' + FeedBackList[ codeID ] + '</pre></div> <div class="panel" style="text-align: right;"><div class="item" onclick="CloseFeedback();"><i class="fa fa-times"></i> Close window</div></div>' );
+	$( '.overlay .window' ).html( 
+		'<h2>Feedback from ' + codeID + '</h2><div id="code" style="height: 360px;"><pre>' + FeedBackList[ codeID ] + 
+		'</pre></div> <div class="panel" style="text-align: right;">' + 
+		'<div class="item" onclick="ShowFeedbacks();"><i class="fa fa-chevron-circle-left"></i> Back to feedbacks</div> ' + 
+		'<div class="item" onclick="CloseFeedback();"><i class="fa fa-times"></i> Close window</div>' + 
+		'</div>' 
+	);
 	HandleLines();
+	FeedBackReadList[ codeID ] = true;
 }
 
 function GoLive() {

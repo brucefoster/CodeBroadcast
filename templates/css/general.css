@@ -557,8 +557,12 @@ label {
  */
 
 pre {
-	font: 12px/22px Lucida Console;
+	font: 12px/16px Lucida Console;
 	width: 98%;
+}
+
+.hand {
+	cursor: pointer;
 }
 
 .lineselector {
@@ -746,14 +750,21 @@ pre {
 .feedbacklink {
 	padding: 8px 15px 8px 15px;
 	border-bottom: dotted 1px #F8F8F8;
+	font: 14px/20px Arial;
+	color: #BBBBBB;
 }
 
 .feedbacklink a {
 	font: 14px/20px Arial;
+	font-weight: bold;
 	text-decoration: none;
-	color: #8095F2;
+	color: #4B61AF;
+}
+
+.feedbacklink.read a {
+	color: #BBBBBB;
 }
 
 .feedbacklink a:hover {
-	color: #4B67E3;
+	color: #314072;
 }
