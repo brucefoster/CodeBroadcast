@@ -1,6 +1,6 @@
 ####What is CodeBroadcast?
 
-CodeBroadcast is a tool to broadcast PHP code in **real-time**:
+CodeBroadcast is a tool to broadcast PHP, HTML and JS code in **real-time**:
 <p align="center"><a href="http://brucefoster.github.io/Timetable/shared/broadcaster.png" style="text-align: center;"><img src="http://brucefoster.github.io/Timetable/shared/broadcaster.png" align="center" width="600" ></a></p>
 
 It's simple and works with **WebRTC** which makes it fast and don't requires lots of PC resources, so you can broadcast your code even **from your tablet**.
