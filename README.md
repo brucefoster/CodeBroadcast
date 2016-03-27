@@ -1,33 +1,31 @@
-####What is CodeBroadcast?
+###What is CodeBroadcast?
 
-CodeBroadcast is a tool to broadcast PHP, HTML and JS code in **real-time**:
-<p align="center"><a href="http://brucefoster.github.io/Timetable/shared/broadcaster.png" style="text-align: center;"><img src="http://brucefoster.github.io/Timetable/shared/broadcaster.png" align="center" width="600" ></a></p>
+CodeBroadcast is a tool to broadcast PHP, HTML and JS code in **real-time** using WebRTC.
 
-It's simple and works with **WebRTC** which makes it fast and don't requires lots of PC resources, so you can broadcast your code even **from your tablet**.
+It's made lightweight and works using **WebRTC** technology that provide instant P2P data transfer. Being supported by Google Chrome and Firefox you can broadcast your code, for example, to Android devices (it can be useful in purposes of education) and, of course, to PCs/Notebooks.
 
-Also you can **execute your code directly from broadcaster's interface** without leaving it and share execution result between connected viewers. Execution with **custom GET parameters** supported too.
-<p align="center"><a href="http://brucefoster.github.io/Timetable/shared/advanced.png" style="text-align: center;"><img src="http://brucefoster.github.io/Timetable/shared/advanced.png" align="center" width="400" ></a></p>
+You can also **execute your code directly from broadcaster's interface**: the result will be instantly sent to all the connected viewers. Execution with **custom GET parameters** is supported too.
 
-Your code will be shown on each connected users device simultaneously.
-<p align="center"><a href="http://brucefoster.github.io/Timetable/shared/user.png" style="text-align: center;"><img src="http://brucefoster.github.io/Timetable/shared/user.png" align="center" width="600" ></a></p>
+Written code will be broadcasted to all the connected devices simultaneously (read more about basics of P2P and WebRTC).
 
-Using **Feedback feature**, you can review code sent by your viewers and give them tasks. 
-<p align="center"><a href="http://brucefoster.github.io/Timetable/shared/feedback.png" style="text-align: center;"><img src="http://brucefoster.github.io/Timetable/shared/feedback.png" align="center" width="400" ></a></p>
-
-####Features
-* Uses WebRTC connection based on PeerJS Technology (see https://github.com/peers/peerjs).
-* Requires browser with WebRTC and localStorage support, PHP
+###Features
+* Uses WebRTC technology based on PeerJS (see https://github.com/peers/peerjs).
+* Requirements:
+  * For broadcaster:
+    * PHP 5.3 or higher;
+    * Web Server (apache, nginx...);
+    * Browser with WebRTC support.
+  * For viewer:
+    * Compatible device that supports browsers with WebRTC.
 * Written on PHP and JavaScript
-* Tool to broadcast code in real-time to multiple users
-* Can be **used locally**
-* Can be ussed via Internet for **webinars**
-* Supports PHP code broadcast and execution (_for now_, _planned: C, C++ support, JavaScript & HTML support_)
-* _Planned:_ Automatic task completion check
-* _Planned:_ Ability to give temporary code broadcast rights to user 
+* Tool to broadcast code in real-time to up to 50 users
+* Can be used locally or via Internet for **on-line webinars**
+* Supports PHP code broadcasting and execution (_for now_, _planned: JavaScript & HTML support_)
 
+###Development prospects
+- [ ] Automatic task completion check
+- [ ] Rewrite the whole script to Node.JS
+- [ ] Change direction of development to JavaScript, HTML & CSS
 
-####For which purposes can be used
-* University **education**
-* Webinars
-* Co-working
-
+######Keywords
+> how to broadcast code to others from browser, browser code broadcast, code broadcastng, how to broadcast the machine code, js broadcasting, broadcasting with browser, send code to others, share code online
