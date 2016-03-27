@@ -10,22 +10,25 @@ Written code will be broadcasted to all the connected devices simultaneously (re
 
 ###Features
 * Uses WebRTC technology based on PeerJS (see https://github.com/peers/peerjs).
-* Requirements:
-  * For broadcaster:
-    * PHP 5.3 or higher;
-    * Web Server (apache, nginx...);
-    * Browser with WebRTC support.
-  * For viewer:
-    * Compatible device that supports browsers with WebRTC.
 * Written on PHP and JavaScript
 * Tool to broadcast code in real-time to up to 50 users
 * Can be used locally or via Internet for **on-line webinars**
 * Supports PHP code broadcasting and execution (_for now_, _planned: JavaScript & HTML support_)
 
+###Requirements
+* For broadcaster:
+  * PHP 5.3 or higher;
+  * Web Server (apache, nginx...);
+  * Browser with WebRTC support.
+* For viewer:
+  * Compatible device that supports browsers with WebRTC.
+
 ###Development prospects
 - [ ] Automatic task completion check
 - [ ] Rewrite the whole script to Node.JS
 - [ ] Change direction of development to JavaScript, HTML & CSS
+
+
 
 ######Keywords
 > how to broadcast code to others from browser, browser code broadcast, code broadcastng, how to broadcast the machine code, js broadcasting, broadcasting with browser, send code to others, share code online
